@@ -8,7 +8,7 @@ test('Client App login', async ({ page }) => {
     const productsName="ADIDAS ORIGINAL";
     const products=page.locator(".card-body");
    await page.goto('https://rahulshettyacademy.com/client/#/auth/login');
-   await userName.fill("anshika@gmail.com");
+   await userName.fill("shekar@gmail.com");
    await password.fill("Iamking@000");
    await page.getByRole("button", { name: "Login" }).click();
    //wait till first product loads
@@ -41,5 +41,29 @@ test('Client App login', async ({ page }) => {
     await page.getByRole("button", { name: "India" }).nth(1).click();
     await page.getByText("Place Order").click();
     await expect(page.getByText("Thankyou for the order.")).toBeVisible();
+
+
+
+    //change this as above locators
+    const orderId=await page.locator(".em-spacer-1 .ng-star-inserted").textContent();
+        console.log(orderId);
+    
+        await page.locator("button[routerlink*='myorders']").click();
+        //wait till order items load
+        await page.locator("tbody").waitFor();
+    //here we are getting all the rows of the table and then iterating through them to find the order id and then clicking on view button of that order id
+        const rows=await page.locator("tbody tr");
+        const rowCount=await rows.count();
+        for(let i=0;i<rowCount;i++){
+            const rowOrderId=await rows.nth(i).locator("th").textContent();
+            if(orderId.includes(rowOrderId)){
+                await rows.nth(i).locator("button").first().click();
+                break;
+            }
+        }
+        const orderIdDetails = await page.locator(".col-text").textContent();
+        //checking order id
+        expect(orderId.includes(orderIdDetails)).toBeTruthy();
+        // await page.pause();
 
 });

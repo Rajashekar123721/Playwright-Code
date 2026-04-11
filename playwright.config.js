@@ -1,5 +1,6 @@
 // @ts-check
 import { defineConfig, devices } from '@playwright/test';
+import { trace } from 'node:console';
 
 
 /**
@@ -11,15 +12,16 @@ const config={
  expect: {
     timeout: 5000
   },
+  reporter: 'html',
       use: { 
             browserName: 'chromium',
-            headless: false
+            headless: false,
+            screenshot: 'on',
+            trace: 'on'  //on or off or retain-on-failure
 
     },
 
-   
-  
 
- 
 };
 
+module.exports = config;

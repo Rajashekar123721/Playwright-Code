@@ -55,7 +55,9 @@ test('UI Controlls', async ({ page }) => {
 });
 
 
-test.only('Child window handle', async ({ browser }) => {
+// test.only('Child window handle', async ({ browser }) => {
+test('Child window handle', async ({ browser }) => {
+
 
     //new Context is used to isolate the browser session
     const context = await browser.newContext();
@@ -78,7 +80,7 @@ test.only('Child window handle', async ({ browser }) => {
     await page.bringToFront();
     const userName=page.locator("input#username");
     await userName.fill(domain);
-    await page.pause();
+    // await page.pause();
     console.log(await userName.inputValue()); //will return empty because we are passing the text at run time instead we need to use inputValue()
     //await page.pause();
 

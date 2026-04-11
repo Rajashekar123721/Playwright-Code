@@ -8,7 +8,7 @@ test('Client App login', async ({ page }) => {
     const productsName="ADIDAS ORIGINAL";
     const products=page.locator(".card-body");
    await page.goto('https://rahulshettyacademy.com/client/#/auth/login');
-   await userName.fill("anshika@gmail.com");
+   await userName.fill("shekar@gmail.com");
    await password.fill("Iamking@000");
    await page.locator("#login").click();
    //wait till first product loads
@@ -71,7 +71,7 @@ test('Client App login', async ({ page }) => {
     const orderIdDetails = await page.locator(".col-text").textContent();
     //checking order id
     expect(orderId.includes(orderIdDetails)).toBeTruthy();
-    await page.pause();
+    // await page.pause();
 
 
 });
