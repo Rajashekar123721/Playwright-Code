@@ -20,9 +20,7 @@ jobs:
       uses: azure/login@v3
       with:
         creds: ${{ secrets.AZURE_CREDENTIALS }}
-        
-    - name: Install Playwright Browsers
-      run: npx playwright install --with-deps
+
     - name: Run Playwright tests
       env:
         PLAYWRIGHT_SERVICE_URL: ${{ vars.PLAYWRIGHT_SERVICE_URL }}
