@@ -1,4 +1,4 @@
-//2nd way for API
+//2nd way for API Test
 
 //this js code is for store session storage and inject into new browser context(Ex: we use login for one test and for other tests it wont ask login again since we send the token in local storage and it will be available for all tests)
 //Login-UI -> .json(which includes all session storage/local storage values)
