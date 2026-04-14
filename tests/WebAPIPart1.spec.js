@@ -23,7 +23,7 @@ test.beforeAll(async () =>
 
 
 
-test('Place the order', async ({ page }) => {
+test('@API Place the order', async ({ page }) => {
     
     await page.addInitScript(value => {
         window.localStorage.setItem('token', value);
@@ -47,10 +47,11 @@ test('Place the order', async ({ page }) => {
         }
     }
     const orderIdDetails = await page.locator(".col-text").textContent();
-    await page.pause();
+    // await page.pause();
     //checking order id
-    expect(orderId.includes(orderIdDetails)).toBeTruthy();
+    expect(response.orderId.includes(orderIdDetails)).toBeTruthy();
    
 
 
 });
+//Verify if order created is showing in history page
