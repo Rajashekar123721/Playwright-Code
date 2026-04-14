@@ -1,3 +1,5 @@
+//1st way for API
+
 const {test, expect,request} = require('@playwright/test');
 const {APIUtils}= require('./utils/APIUtils');
 //this loginPayload will come from network tab login response 
