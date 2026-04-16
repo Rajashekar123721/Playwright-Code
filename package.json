@@ -1,14 +1,17 @@
 {
   "dependencies": {
-    "playwright": "^1.58.0"
+    "exceljs": "^4.4.0",
+    "playwright": "^1.59.1"
   },
   "devDependencies": {
     "@azure/identity": "^4.13.1",
     "@azure/playwright": "^1.1.4",
-    "@playwright/test": "^1.58.0",
+    "@playwright/test": "^1.59.1",
     "@types/node": "^25.0.10"
   },
   "scripts": {
-    "test": "npx playwright test tests/WebAPIPart1.spec.js --headed"
+    "test": "npx playwright test tests/WebAPIPart1.spec.js --headed",
+    "regression": "npx playwright test",
+    "APITests": "npx playwright test --grep @API"
   }
 }
