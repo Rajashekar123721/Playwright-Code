@@ -36,5 +36,7 @@ test('Popup Validation',async({page})=>{
 //for the first time it will fail because there is no stored screenshot but in next runs it will compare the generated screenshot with stored ones and if there is any change in the UI then it will fail the test and we can see the difference in the generated screenshot and stored ones.
 test.only('Visual Testing',async({page})=>{
     await page.goto('https://auth.ultimatix.net/utxLogin/login?TYPE=33554432&REALMOID=06-000e128c-664b-1c1a-9ba7-abcac0a8f081&GUID=&SMAUTHREASON=0&METHOD=GET&SMAGENTNAME=-SM-hH4s%2bx89e0zLyyJB26KwxN5y7fGJNanRUhav0qPo%2f9tiGbWXhsZrLgoPW%2fGInc1a&TARGET=-SM-https%3a%2f%2fwww%2eultimatix%2enet%2futxHomeApp%2fredirectToHome');
+    await page.waitForLoadState('networkidle');
+    await page.waitForTimeout(5000);
     expect(await page.screenshot()).toMatchSnapshot('ultimatix.png');
 });
