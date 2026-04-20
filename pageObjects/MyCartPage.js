@@ -8,7 +8,8 @@ class MyCartPage {
     }
     async verifyProductAndCheckout(productsName){
          //here waitFor is used because isVisible doesn't have auto wait
-        await this.checkoutPageComponentsLoad.first().waitFor();
+        // await this.checkoutPageComponentsLoad.first().waitFor();
+        
         //locator based on text and tag
         const bool=await this.page.locator(`h3:has-text("${productsName}")`).isVisible();
         expect(bool).toBeTruthy();
