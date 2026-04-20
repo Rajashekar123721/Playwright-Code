@@ -1,12 +1,14 @@
 
 const {test, expect} = require('@playwright/test');
-const console = require('node:console');
+
+
 
 test('Client App login', async ({ page }) => {
     const userName=page.locator("#userEmail");
     const password=page.locator("#userPassword");
     const productsName="ADIDAS ORIGINAL";
     const products=page.locator(".card-body");
+  
    await page.goto('https://rahulshettyacademy.com/client/#/auth/login');
    await userName.fill("shekar@gmail.com");
    await password.fill("Iamking@000");

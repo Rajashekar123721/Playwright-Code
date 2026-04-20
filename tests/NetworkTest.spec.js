@@ -1,5 +1,5 @@
 const { test, expect, request } = require("@playwright/test");
-const { APIUtils } = require("./utils/APIUtils");
+const { APIUtils } = require("../utils/APIUtils");
 //this loginPayload will come from network tab login response
 const loginPayload = {
   userEmail: "shekar@gmail.com",

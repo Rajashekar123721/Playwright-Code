@@ -1,5 +1,6 @@
 const{test,expect}=require('@playwright/test');
 
+
 test('Popup Validation',async({page})=>{
     await page.goto('https://rahulshettyacademy.com/AutomationPractice/');
     // await page.goto('http://google.com');
@@ -34,9 +35,10 @@ test('Popup Validation',async({page})=>{
 
 //take screenshot of page and store it in some place.In future if we run again the test now it will compare the generated screenshot with stored ones is matching or not.
 //for the first time it will fail because there is no stored screenshot but in next runs it will compare the generated screenshot with stored ones and if there is any change in the UI then it will fail the test and we can see the difference in the generated screenshot and stored ones.
-test.only('Visual Testing',async({page})=>{
-   await page.goto('https://the-internet.herokuapp.com/login');
+
+/*test('Visual Testing',async({page})=>{
+   await page.goto('https://info.cern.ch/');
     await page.waitForLoadState('networkidle');
     await page.waitForTimeout(5000);
-    expect(await page.screenshot()).toMatchSnapshot('the-internet.png');
-});
+    expect(await page.screenshot()).toMatchSnapshot('cern.png');
+});*/

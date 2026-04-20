@@ -1,7 +1,7 @@
 //1st way for API
 
 const {test, expect,request} = require('@playwright/test');
-const {APIUtils}= require('./utils/APIUtils');
+const {APIUtils}= require('../utils/APIUtils');
 //this loginPayload will come from network tab login response 
 const loginPayload = {userEmail: "shekar@gmail.com", userPassword: "Iamking@000"};
 const orderPayload = {orders: [{country: "Cuba", productOrderedId: "6960eae1c941646b7a8b3ed3"}]};
