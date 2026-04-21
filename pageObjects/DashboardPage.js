@@ -1,29 +1,50 @@
+const { expect } = require('@playwright/test');
+
 class DashboardPage {
     constructor(page) {
+        this.page=page;
         this.products = page.locator(".card-body");
         this.productsText=page.locator(".card-body b");
         this.cart=page.locator("[routerlink*='cart']");
     }
 
     async searchProductAddToCart(productsName){
-         
-          
-          const titles=await this.productsText.allTextContents();
-          const count=titles.length;
-          console.log(count);
-          console.log(titles);
-          const count1=await this.products.count();
-    for(let i=0;i<count1;i++){
-        if(await this.products.nth(i).locator("b").textContent()===productsName){    
-            //locator based on text add to cart
-            await this.products.nth(i).locator("text= Add To Cart").click();
+    // Wait for products to load
+    await this.products.first().waitFor();
+    const count = await this.products.count();
+    for(let i = 0; i < count; i++){
+        const productText = await this.products.nth(i).locator("b").textContent();
+        if(productText.trim() === productsName){
+            await this.products.nth(i).locator("text=Add To Cart").click();
+            // ✅ CRITICAL FIX: wait for confirmation
+            await expect(this.page.locator("#toast-container")).toBeVisible();
+            await expect(this.page.locator("#toast-container")).toContainText("Added");
+            // Alternative (more stable in CI)
+            // await expect(this.page.locator(".cart-count")).toHaveText("1");
             break;
         }
     }
-    }
+}
 
-    async navigateToCart(){
-        await this.cart.click();
+//or
+
+//  async searchProductAddToCart(productsName){
+//     const product = this.products.filter({
+//         has: this.page.locator(`b:has-text("${productsName}")`)
+//     });
+//     await product.locator("text=Add To Cart").click();
+//     // wait for confirmation
+//     await expect(this.page.locator("#toast-container")).toBeVisible();
+//     }
+
+
+    async navigateToCart(){  
+    // Optional but helps in CI
+    await this.page.waitForLoadState('networkidle');
+    await this.cart.click();
+    // Ensure cart page is loaded
+    await this.page.locator("h1:has-text('My Cart')").waitFor();
     }
 }
+
 module.exports={DashboardPage};
