@@ -2,6 +2,7 @@
 const {test, expect} = require('@playwright/test');
 const console = require('node:console');
 
+test.describe.configure({mode:'parallel'})//it will run the tests in parallel mode and it will run the tests in the order they are defined in the file but it will run them in parallel mode.
 test('Browser Context playwright test', async ({ browser }) => {
    
     const context = await browser.newContext();

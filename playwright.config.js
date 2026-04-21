@@ -8,6 +8,7 @@ import { trace } from 'node:console';
  */
 const config={
   testDir: './tests',
+  retries:2,
  timeout: 50 * 1000,
  expect: {
     timeout: 5000
@@ -15,7 +16,7 @@ const config={
   reporter: 'html',
       use: { 
             browserName: 'chromium',
-            headless: false,
+            headless: true,
             screenshot: 'on',
             trace: 'on',  //on or off or retain-on-failure
             video: "retain-on-failure",
