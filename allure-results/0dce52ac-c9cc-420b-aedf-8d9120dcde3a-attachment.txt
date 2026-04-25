@@ -1,0 +1,8 @@
+Before all tests
+eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2OWQ3ZGFiY2Y4NmJhNTFhNjU1NmFmODYiLCJ1c2VyRW1haWwiOiJzaGVrYXJAZ21haWwuY29tIiwidXNlck1vYmlsZSI6ODk3NDYzOTg3MywidXNlclJvbGUiOiJjdXN0b21lciIsImlhdCI6MTc3NjgwMDQ1OCwiZXhwIjoxODA4MzU4MDU4fQ.8yAKX_eoFF0rCQ0jKzhqFkqxDt0aNttzJTz4cyizFhk
+{
+  orders: [ '69e7d2caf86ba51a657a8345' ],
+  productOrderId: [ '6960eae1c941646b7a8b3ed3' ],
+  message: 'Order Placed Successfully'
+}
+69e7d2caf86ba51a657a8345

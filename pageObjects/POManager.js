@@ -1,4 +1,4 @@
-import {LoginPage} from './LoginPage';
+const {LoginPage}=require('./LoginPage');
 const {PaymentsPage}=require('./PaymentsPage');
 const {MyCartPage}=require('./MyCartPage');
 const {DashboardPage}=require('./DashboardPage');

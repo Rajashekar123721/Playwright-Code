@@ -1,5 +1,6 @@
 {
   "dependencies": {
+    "@cucumber/cucumber": "^12.8.1",
     "exceljs": "^4.4.0",
     "playwright": "^1.59.1"
   },
@@ -7,11 +8,15 @@
     "@azure/identity": "^4.13.1",
     "@azure/playwright": "^1.1.4",
     "@playwright/test": "^1.59.1",
-    "@types/node": "^25.0.10"
+    "@types/node": "^25.6.0",
+    "allure-playwright": "^3.7.1",
+    "typescript": "^6.0.3"
   },
   "scripts": {
     "test": "npx playwright test tests/WebAPIPart1.spec.js --headed",
     "regression": "npx playwright test",
-    "APITests": "npx playwright test --grep @API"
+    "APITests": "npx playwright test --grep @API",
+    "Firefox": "npx playwright test --config playwright.config1.js --project=firefox",
+    "CucumberRegression": "node node_modules/@cucumber/cucumber/bin/cucumber-js"
   }
 }
